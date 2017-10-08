@@ -6,13 +6,28 @@
     android:layout_height="match_parent"
     tools:context="com.example.tattata.mylight.MainActivity">
 
-    <Button
-        android:id="@+id/buttonOnOff"
+    <TextView
+        android:id="@+id/textOnOff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ON/OFF"
+        android:text="消灯中"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <ToggleButton
+        android:id="@+id/buttonOnOff"
+        android:layout_width="196dp"
+        android:layout_height="154dp"
+        android:text="ToggleButton"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.554" />
+
 </android.support.constraint.ConstraintLayout>

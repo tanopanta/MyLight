@@ -8,11 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonOnOff;
+    private TextView textOnOff;
     private CameraManager mCameraManager;
     private CameraManager.TorchCallback mTorchCallback;
     private String mCameraID;
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonOnOff = (Button)findViewById(R.id.buttonOnOff);
+        textOnOff = (TextView)findViewById(R.id.textOnOff);
 
         mCameraManager = (CameraManager)getSystemService(Context.CAMERA_SERVICE);
         mTorchCallback = new CameraManager.TorchCallback() {
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         buttonOnOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setOnOffMessage(!isOn);
                 torchToggle();
             }
         });
@@ -51,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
         } catch (CameraAccessException e) {
             Toast.makeText(getApplicationContext(), "カメラにアクセスできませんね", Toast.LENGTH_SHORT)
                     .show();
+        }
+    }
+    private void setOnOffMessage(boolean boo) {
+        if(boo) {
+            textOnOff.setText("点灯中");
+        } else {
+            textOnOff.setText("消灯中");
         }
     }
 
