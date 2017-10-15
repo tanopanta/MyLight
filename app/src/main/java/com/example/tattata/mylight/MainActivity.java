@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonOnOff;
-    private TextView textOnOff;
+    private ImageView imageView;
     private CameraManager mCameraManager;
     private CameraManager.TorchCallback mTorchCallback;
     private String mCameraID;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonOnOff = (Button)findViewById(R.id.buttonOnOff);
-        textOnOff = (TextView)findViewById(R.id.textOnOff);
+        imageView = (ImageView)findViewById(R.id.imageView);
 
         mCameraManager = (CameraManager)getSystemService(Context.CAMERA_SERVICE);
         mTorchCallback = new CameraManager.TorchCallback() {
@@ -61,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setOnOffMessage(boolean boo) {
         if(boo) {
-            textOnOff.setText("点灯中");
+            imageView.setImageResource(R.drawable.light_on);
         } else {
-            textOnOff.setText("消灯中");
+            imageView.setImageResource(R.drawable.light_off);
         }
     }
 
