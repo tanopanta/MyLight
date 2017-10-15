@@ -1,6 +1,7 @@
 package com.example.tattata.mylight;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.support.annotation.NonNull;
@@ -9,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setOnOffMessage(boolean boo) {
         if(boo) {
-            imageView.setImageResource(R.drawable.light_on);
+            imageView.setColorFilter(Color.rgb(222, 210, 64));//yellow
         } else {
-            imageView.setImageResource(R.drawable.light_off);
+            imageView.setColorFilter(Color.rgb(48, 48, 48));//gray
         }
     }
 
